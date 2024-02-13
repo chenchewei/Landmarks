@@ -13,7 +13,19 @@ struct CategoryHome: View {
     var body: some View {
         NavigationSplitView {
             List {
-                ForEach(modelData.categories.keys.sorted(), id: \.self) { Text($0) }
+                modelData.features[0].image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 200)
+                    .clipped()
+                    .listRowInsets(EdgeInsets()) // Fill in row size
+                
+                
+                
+                ForEach(modelData.categories.keys.sorted(), id: \.self) {
+                    CategoryRow(categoryName: $0, items: modelData.categories[$0]!)
+                }
+                .listRowInsets(EdgeInsets())
             }
                 .navigationTitle("Featured")
         } detail: {
