@@ -11,7 +11,7 @@ struct LandmarkList: View {
     @State private var showFavoritesOnly: Bool = true
     
     var filteredLandmarks: [Landmark] {
-        landmarks.filter { !showFavoritesOnly || $0.isFavorite }
+        ModelData().landmarks.filter { !showFavoritesOnly || $0.isFavorite }
     }
     
     var body: some View {
