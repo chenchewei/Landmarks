@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    @State private var showFavoritesOnly: Bool = true
+    
+    var filteredLandmarks: [Landmark] {
+        landmarks.filter { !showFavoritesOnly || $0.isFavorite }
+    }
+    
     var body: some View {
         NavigationSplitView {
-            List(landmarks) { landmark in
+            List(filteredLandmarks) { landmark in
                 NavigationLink {
                     LandmarkDetail(landmark: landmark)
                 } label: {
