@@ -18,7 +18,7 @@ extension AnyTransition {
 
 struct HikeView: View {
     var hike: Hike
-    @State private var showDetail = true
+    @State private var showDetail = false
 
     var body: some View {
         VStack {
@@ -35,7 +35,7 @@ struct HikeView: View {
                 Spacer()
 
                 Button {
-                    withAnimation(.easeInOut(duration: 2)) {
+                    withAnimation(.easeInOut(duration: 0.5)) {
                         showDetail.toggle()
                     }
                 } label: {
