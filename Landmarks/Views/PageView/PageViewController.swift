@@ -34,6 +34,7 @@ struct PageViewController<Page: View>: UIViewControllerRepresentable {
         )
     }
     
+    // MARK: - Coordinator
     class Coordinator: NSObject, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
         var parent: PageViewController
         var controllers: [UIViewController] = []
